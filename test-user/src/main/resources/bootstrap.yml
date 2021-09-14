@@ -1,0 +1,34 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+        bindings:
+          rocketOutputTestChannel:
+            producer:
+              group: GID_TREE_TEST_XIAO_K
+          rocketOutputVideoChannel:
+            producer:
+              group: GID_TREE_VIDEO_XIAO_K
+      bindings:
+        rocketOutputTestChannel:
+          destination: topic_order_msg
+          content-type: application/json
+        rocketOutputVideoChannel:
+          destination: topic_video_msg
+          content-type: application/json
+  profiles:
+    active: dev
+
+
+
+
+
+
+
+

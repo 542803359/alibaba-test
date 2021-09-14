@@ -1,0 +1,42 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+        bindings:
+          #设置该topic的tag,对消息进行筛选,设置相应的 tags, 多个使用 || 分割
+          rocketInputVideoChannel:
+            consumer:
+              tags: test-tag
+          rocketInputVideoChannel2:
+            consumer:
+              tags: test-tag-demo
+      bindings:
+        rocketInputTestChannel:
+          destination: topic_order_msg
+          content-type: application/json
+          group: group1
+         #定义通道,绑定topic和group
+        rocketInputVideoChannel:
+          destination: topic_video_msg
+          content-type: application/json
+          group: video
+        rocketInputVideoChannel2:
+          destination: topic_video_msg
+          content-type: application/json
+          group: video2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
