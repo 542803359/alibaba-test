@@ -13,7 +13,7 @@ spring:
         binder:
           name-server: 127.0.0.1:9876
         bindings:
-          #ÉèÖÃ¸ÃtopicµÄtag,¶ÔÏûÏ¢½øĞĞÉ¸Ñ¡,ÉèÖÃÏàÓ¦µÄ tags, ¶à¸öÊ¹ÓÃ || ·Ö¸î
+          #è®¾ç½®è¯¥topicçš„tag,å¯¹æ¶ˆæ¯è¿›è¡Œç­›é€‰,è®¾ç½®ç›¸åº”çš„ tags, å¤šä¸ªä½¿ç”¨ || åˆ†å‰²
           rocketInputVideoChannel:
             consumer:
               tags: test-tag
@@ -25,7 +25,7 @@ spring:
           destination: topic_order_msg
           content-type: application/json
           group: group1
-         #¶¨ÒåÍ¨µÀ,°ó¶¨topicºÍgroup
+        #å®šä¹‰é€šé“,ç»‘å®štopicå’Œgroup
         rocketInputVideoChannel:
           destination: topic_video_msg
           content-type: application/json
