@@ -26,6 +26,19 @@ spring:
     active: dev
 
 
+#  datasource:
+#    #MySQL连接信息
+#    url: jdbc:mysql://rm-********.mysql.rds.aliyuncs.com:3306/tbcloud?useUnicode=true&characterEncoding=UTF8&useTimezone=true&serverTimezone=GMT%2B8
+#    # 账号
+#    username: *****
+#    # 密码
+#    password: *****
+#    # 驱动
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+# 从nacos-config读取
+
+
+
 
 
 
