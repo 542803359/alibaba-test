@@ -22,6 +22,7 @@
         <module>test-user</module>
         <module>test-gateway</module>
         <module>test-consumer</module>
+        <module>test-consumer-slave</module>
     </modules>
 
     <dependencies>
