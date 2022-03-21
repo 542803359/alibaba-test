@@ -18,6 +18,7 @@ spring:
           rocketInputVideoChannel:
             consumer:
               tags: test-tag
+           #  broadcasting: true # 是否使用广播消费，默认为 false（使用集群消费）
           rocketInputVideoChannel2:
             consumer:
               tags: test-tag-demo

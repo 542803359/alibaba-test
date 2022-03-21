@@ -4,17 +4,22 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml
+    # Spring Cloud Stream 配置项，对应 BindingServiceProperties 类
     stream:
       rocketmq:
+        # RocketMQ Binder 配置项，对应 RocketMQBinderConfigurationProperties 类
         binder:
           name-server: 127.0.0.1:9876
+        # RocketMQ 自定义 Binding 配置项，对应 RocketMQBindingProperties Map
         bindings:
           rocketOutputTestChannel:
+            # RocketMQ Producer 配置项，对应 RocketMQProducerProperties 类
             producer:
               group: GID_TREE_TEST_XIAO_K
           rocketOutputVideoChannel:
             producer:
               group: GID_TREE_VIDEO_XIAO_K
+      # Binding 配置项，对应 BindingProperties Map
       bindings:
         rocketOutputTestChannel:
           destination: topic_order_msg
@@ -24,6 +29,11 @@ spring:
           content-type: application/json
   profiles:
     active: dev
+
+#  spring.cloud.stream.rocketmq.bindings 为 RocketMQ 自定义 Binding 配置项，
+#  用于对通用的spring.cloud.stream.bindings 配置项的增强，实现 RocketMQ Binding 独特的配置。
+#  该配置项对应 RocketMQBindingProperties Map，其中 key 为 Binding 的名字，需要对应上
+
 
 
 #  datasource:

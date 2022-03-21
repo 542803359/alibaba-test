@@ -4,6 +4,7 @@ package com.xiaowenxing.testuser.controller;
 import com.xiaowenxing.testuser.domin.UserRelationDo;
 import com.xiaowenxing.testuser.mq.RocketMqConfig;
 import com.xiaowenxing.testuser.service.MyBatisExampleService;
+import org.apache.rocketmq.common.message.MessageConst;
 import org.apache.rocketmq.spring.support.RocketMQHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -62,6 +63,9 @@ public class TestController {
 
     @GetMapping("/mqTest")
     public String mqTest(@RequestParam String msg) {
+
+        Message<String> build = MessageBuilder.withPayload("test-delay")
+                .setHeader(MessageConst.PROPERTY_DELAY_TIME_LEVEL, "3").build();
 
         boolean send = mySource.rocketOutputTestChannel().send(MessageBuilder.withPayload(msg).build());
         return msg + "---" + send;
